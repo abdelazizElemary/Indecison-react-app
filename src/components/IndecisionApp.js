@@ -7,7 +7,7 @@ import OptionModal from './OptionModal';
 
 class IndecisionApp extends React.Component {
     state = {
-        subtitle: 'Put your life in the hands of your computer',
+        subtitle: 'Put your life in the hands of a computer.',
         options: [],
         selectedOption: undefined
     };
@@ -63,18 +63,25 @@ class IndecisionApp extends React.Component {
         return (
             <div>
                 <Header subtitle={this.state.subtitle} />
-                <Action
-                    hasOption={this.state.options.length === 0}
-                    handlePick={this.handlePick}
-                />
-                <Options
-                    options={this.state.options}
-                    handleDeleteOptions={this.handleDeleteOptions}
-                    handleDelete={this.handleDelete}
-                />
-                <AddOption
-                    handleAddOption={this.handleAddOption}
-                />
+                <div className="container">
+                    <Action
+                        hasOption={this.state.options.length === 0}
+                        handlePick={this.handlePick}
+                    />
+
+                    <div className="widget">
+                        <Options
+                            options={this.state.options}
+                            handleDeleteOptions={this.handleDeleteOptions}
+                            handleDelete={this.handleDelete}
+                        />
+                        <AddOption
+                            handleAddOption={this.handleAddOption}
+                        />
+                    </div>
+                    
+                </div>
+
                 <OptionModal
                     selectedOption={this.state.selectedOption}
                     handleSelectedOption={this.handleSelectedOption}
